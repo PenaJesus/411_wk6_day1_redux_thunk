@@ -1,14 +1,51 @@
-import React from 'react'
-import Button from '@material-ui/core/Button';
+import React from "react";
+import {
+  Button,
+  Table,
+  TableHead,
+  TableBody,
+  TableRow,
+  TableCell,
+  Container,
+} from "@material-ui/core";
+import { MoreVert } from "@material-ui/icons";
 
 const Import = (props) => {
-    // fill out this component
+  console.log(props)
+  // fill out this component
+  
 
-    return (
-        <Button variant="contained" color="primary" onClick={() => props.fetchMakes()}>
+  return (
+    <Container>
+      <Button variant="contained" color="primary" onClick={() => props.fetchMakes()}>
         Import
       </Button>
-    )
-}
 
-export default Import
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>Id</TableCell>
+            <TableCell align="right">Make</TableCell>
+            <TableCell align="right">Actions</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {props.makes.map((make, index) => (
+            <TableRow key={index}>
+              <TableCell>{make.MakeId}</TableCell>
+              <TableCell >{make.MakeName}</TableCell>
+              <TableCell >
+                
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+
+     
+
+    </Container>
+  );
+};
+
+export default Import;
